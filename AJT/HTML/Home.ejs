@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Home.css" type="text/css">
+    <script src="https://kit.fontawesome.com/1dc24e00a8.js" crossorigin="anonymous"></script>
+    <!-- <script src="index.js"></script> -->
+    <title>Home</title>
+</head>
+
+<body id="body"> 
+    <div class="container" id="container">
+        
+        <%- include ('Header.ejs') -%>
+
+        <div class="home">
+            <div class="home_info">
+                <h1 id="h1">Find Your Bestfreind</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, vel!</p>
+                <form action="/Book">
+                    <input type="submit" value="EXPLORE ALL" class="explore">
+                </form>
+            </div>
+            <div class="home_img">
+                <img src="../Images/Logo/BOOKSTORE5.png" width="500px" height="400px">
+            </div>
+        </div>
+        <div class="new">
+            <div class="new_info">
+                <p class="p1">New Release</p>
+                <h1><%= data[(data.length)-1].title %></h1>
+                <p class="p2"><%= data[(data.length)-1].info1 %></p>
+                <button class="new_release" id="<%= data[(data.length)-1]._id %>">Buy Now</button>
+            </div>
+            <div class="new_img">
+                <img src="<%= data[(data.length)-1].img %>" width="300px" height="450px">
+            </div>
+        </div>
+        <div class="popular">
+            <h1>Popular Books</h1>
+        </div>
+
+        <div class="books">
+            <% book.forEach((x)=>{ %>
+                <div class="book1" id="<%= x._id %>">
+                    <img src="<%= x.img %>" width="200px" height="300px">
+                    <h1><%= x.title %></h1>
+                    <div class="order">
+                        <p><%= x.price %></p>
+                        <button class="btn">Buy Now</button>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+
+        <div class="shop">
+            <button></button>
+        </div>
+
+        <% author.forEach((x)=>{ %>
+            <div class="new">
+                <div class="new_img">
+                    <img src="<%= x.img %>" width="350px" height="400px">
+                </div>
+                <div class="new_info">
+                    <p class="p1">BIOGRAPHY</p>
+                    <h1><%= x.title %></h1>
+                    <div class="author_info">
+                        <p class="p2"><%= x.desc1 %></p>
+                        <p class=p2><%= x.desc2 %></p>
+                    </div>
+                    <button class="new_btn" id="<%= x._id %>">Read More</button>
+                </div>
+            </div>
+        <% }); %>
+        <%- include ('Footer.ejs') -%>
+    </div>
+
+    <script>
+        let btn = document.querySelectorAll('.new_btn');
+        btn.forEach(button =>{
+            button.addEventListener('click', function btn(){
+                let id = button.id;
+                location.href = `/About_Author?id=${id}`
+            });
+        });
+
+        let book = document.querySelectorAll('.book1');
+        book.forEach(button =>{
+            button.addEventListener('click', function btn(){
+                let id = button.id;
+                location.href = `/About_Book?id=${id}`
+            });
+        });
+
+        let new_book = document.querySelectorAll('.new_release');
+        new_book.forEach(button =>{
+            button.addEventListener('click', function btn(){
+                let id = button.id;
+                location.href = `/About_Book?id=${id}`
+            });
+        });
+    </script>
+</body>
+
+</html>

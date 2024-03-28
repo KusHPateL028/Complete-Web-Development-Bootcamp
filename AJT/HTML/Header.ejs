@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../CSS/Header.css">
+    </head>
+    <body>
+        <nav class="nav">
+            <a href="/Home" class="home_link">
+                <div class="logo">
+                    <img src="../Images/Logo/book_logo.png" widtyh="50px" height="50px">
+                    <h1>BOOKHOUSE</h1>
+    
+                </div>
+            </a>
+            <div class="search">
+                <input type="search" name="search" class="find" placeholder="Search by Name,Title or Author"><a
+                    href="Search.html"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+    
+            <div class="cart" id="symbol">
+                <i class="fa-sharp fa-solid fa-cart-shopping fa-2xl" id="cart1"></i>
+    
+                <div class="setting">
+                    <div class="username">
+                        <img src="../Images/Logo/user.png" onclick="showPopup()" class="fa-users" id="profile">
+                    </div>
+                    <div class="profile_img" id="profile_img">
+                        <img src="../Images/Logo/user.png" width="150px" height="150px" id="profile_pic" name="profile_pic">
+                        <h1><%= name %></h1>
+                        <form method="POST" action="/Home" class="change" enctype="multipart/form-data">
+                            <label for="change_profile_img" class="change_profile_img">
+                                Upload Photo
+                                <input type="file" name="testImage" id="change_profile_img" accept="image/*" style="display:none"/>
+                                <input type="submit" value="Upload" class="submit" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class="dropdown" id="dropdown"> 
+                        <div class="abc">
+                            <div class="myuser">
+                                <img src="../Images/Logo/user.png" onclick="showProfile()" width="70px" height="70px"  class="fa-user1" id="profile1">
+                                <div class="info1">
+                                    <h1 class="user_info"><%= name %></h1>
+                                </div>
+                            </div>
+                            <hr width="500px">
+                            <div class="icon">
+                                <i class="fa-solid fa-user"></i>
+                                <p>My Profile</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <p>Your Order</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa-solid fa-heart"></i>
+                                <p>Your Wishlist</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa-solid fa-users-rectangle"></i>
+                                <p>Membership</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa-sharp fa-solid fa-gear"></i>
+                                <p>Setting</p>
+                            </div>
+                            <hr width="500px">
+                            <p class="io">Switch Account</p>
+                            <p id="lo" class="io" style="color:red;">Log Out</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="blocker" id="blocker" onclick="hidePopup()" ></div>
+        <div class="blocker" id="blocker1" onclick="hideProfile()" ></div>
+        <div class="menu">
+            <ul>
+                <li><a href="/Home">Home</a></li>
+                <li><a href="/Book">Books</a></li>
+                <li><a href="/Author">Author</a></li>
+                <li><a href="/Blog">Blog</a></li>
+                <li><a href="/Contact">Contact</a></li>
+            </ul>
+        </div>
+        <script>
+            let lo = document.getElementById("lo");
+            lo.addEventListener('click', function lo() {
+                let logout = confirm("Are you sure you want to logout");
+
+                if (logout) {
+                    location.href = '/Login'
+                }
+            });
+
+            let blocker = document.getElementById("blocker");
+            let dropdown = document.getElementById('dropdown');
+            let body = document.getElementById('container');
+            function showPopup() {
+                dropdown.classList.add('open');
+                blocker.classList.add('open');
+                dropdown.classList.remove('close');
+                body.classList.add('open');
+            }
+            function hidePopup() {
+                blocker.classList.remove('open');
+                dropdown.classList.remove('open');
+                dropdown.classList.add('close');
+                body.classList.remove('open');
+            }
+
+            let blocker1 = document.getElementById('blocker1')
+            let profile_img = document.getElementById('profile_img');
+            function showProfile(){
+               blocker1.classList.add('open');
+               profile_img.classList.add('open');
+               profile_img.classList.remove('close');
+            }
+            function hideProfile(){
+               profile_img.classList.add('close');
+               profile_img.classList.remove('open');
+               blocker1.classList.remove('open');
+            }
+
+            let profile_pic = document.getElementById('profile_pic');
+            let profile_pic1 = document.getElementById('profile1');
+            let profile = document.getElementById('profile');
+            let input_img = document.getElementById('change_profile_img')
+            
+            input_img.addEventListener("change", (event) => {
+                profile_pic.src  =URL.createObjectURL(input_img.files[0])
+                profile_pic1.src  =URL.createObjectURL(input_img.files[0])
+                profile.src  =URL.createObjectURL(input_img.files[0])
+            });
+        </script>
+    </body> 
+</html>

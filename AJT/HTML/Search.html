@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Search.css">
+    <script src="https://kit.fontawesome.com/1dc24e00a8.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <title>Books</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="/Home" class="home_link">
+                <div class="logo">
+                    <img src="../Images/Logo/book_logo.png" widtyh="50px" height="50px">
+                    <h1>BOOKHOUSE</h1>
+                </div>
+            </a>
+            <div class="search">
+                <input type="search" name="search" class="find" placeholder="Search by Name,Title or Author"><i
+                    class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="cart" id="symbol">
+                <a href=""><i class="fa-sharp fa-solid fa-cart-shopping fa-2xl"></i></a>
+            </div>
+        </nav>
+        <div class="menu">
+            <ul>
+                <li><a href="/Home">Home</a></li>
+                <li><a href="/Book">Books</a></li>
+                <li><a href="/Author">Author</a></li>
+                <li><a href="/Blog">Blog</a></li>
+                <li><a href="/Contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="books">
+            <div class="book_info">
+                <div class="book_img">
+                    <img src="../Images/Book/book1.jpg" width="300px" height="400px">
+                </div>
+                <div class="info">
+                    <h1>The Born of APLEX</h1>
+                    <h4>$26.00</h4>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit laborum, atque, nisi eveniet
+                        repellat molestias animi numquam veniam similique beatae distinctio. Dignissimos dicta, sed enim
+                        voluptas similique ad consequuntur laudantium incidunt nisi eos fuga.z</p>
+                    <h5>Category : Fantasy , Science , Sci-fi , Fiction</h5>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div class="buy">
+                        <input type="number" name="quantity" class="quantity">
+                        <button class="new_btn" id="para">Buy Now</button>
+                    </div>
+                    <span>Available in Stock</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="top">
+                <div class="top1">
+                    <a href="/Home" class="home_link">
+                        <div class="footer_logo">
+                            <img src="../Images/Logo/book_logo.png" width="100px" height="70px">
+                            <h1>BOOKHOUSE</h1>
+                        </div>
+                    </a>
+                    <p>"A room without books is like a body without a soul."</p>
+                    <h2>Follow us</h2>
+                    <div class="social">
+                        <a href="https://www.facebook.com">
+                            <div class="social1">
+                                <img src="../Images/Social/facebook.png">
+                            </div>
+                        </a>
+                        <a href="https://www.instagram.com/keps__028/">
+                            <div class="social1">
+                                <img src="../Images/Social/insta.png">
+                            </div>
+                        </a>
+                        <a href="https://www.twitter.com/keps__028/">
+                            <div class="social1">
+                                <img src="../Images/Social/twitter.png">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="top2">
+                    <h1>Links</h1>
+                    <ul>
+                        <li><a href="/Home">Home</a></li>
+                        <li><a href="/Book">Books</a></li>
+                        <li><a href="/Author">Author</a></li>
+                        <li><a href="/Blog">Blog</a></li>
+                        <li><a href="/Contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="top3">
+                    <h1>Support</h1>
+                    <ul>
+                        <li><a href="/Contact">Contact</a></li>
+                        <li><a href="#">Support Center</a></li>
+                        <li><a href="Feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="top4">
+                    <h1>Contact</h1>
+                    <ul>
+                        <li><a href="tel:9898532307">+88014</a></li>
+                        <li><a href="mailto:kushpatel0028@gmail.com">Bookhouse@gmail.com</a></li>
+                        <li><a href="https://goo.gl/maps/2kPAk3CadqHqrrpY9">VGEC,Chandkheda ,Ahmedabad</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <div class="bottom">
+            &copy; copyright 2023 BOOKHOUSE | All rights reserved
+        </div>
+    </div>
+    <script>
+        let para = document.getElementById('para');
+        para.addEventListener('click', function run() {
+            document.getElementById('symbol').innerHTML = '<a href=""><i id="symbol" class="fa-sharp fa-solid fa-cart-shopping fa-shake fa-2xl"></i></a>'
+        });
+    </script>
+</body>
+
+</html>

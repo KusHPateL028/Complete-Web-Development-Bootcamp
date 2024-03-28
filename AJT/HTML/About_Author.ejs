@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/About_Author.css">
+    <script src="https://kit.fontawesome.com/1dc24e00a8.js" crossorigin="anonymous"></script>
+    <title><%= author_data.title %></title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        
+        <%- include ('Header.ejs') -%>
+
+        <div class="author">
+            
+                <div class="image">
+                    <img src="<%= author_data.img %>" height="400px" width="400px">
+                <div class="quote">
+                    <i class="fa-sharp fa-solid fa-quote-left fa-2xl" style="color: rgb(95, 78, 203);"></i>
+                    <p><%= author_data.quote %></p>
+                    <i class="fa-solid fa-quote-right fa-2xl" style="color: rgb(95, 78, 203);"></i>
+                </div>
+            </div>
+            <div class="info">
+                <h1><%= author_data.title %></h1>
+                <p><%= author_data.info1 %></p>
+                <p><%= author_data.info2 %></p>
+                <p><%= author_data.info3 %></p>
+            </div>
+            <div class="bar">
+                <div class="copy">
+                    <h1><%= author_data.copy_sold %></h1>
+                    <p>COPIES SOLD</p>
+                </div>
+                <div class="copy">
+                    <h1><%= author_data.book %></h1>
+                    <p>BOOKS</p>
+                </div>
+                <div class="copy">
+                    <h1><%= author_data.award %></h1>
+                    <p>AWARDS</p>
+                </div>
+            </div>
+           
+            
+            <div class="dont">Books by Author</div>
+            <div class="books">
+                <% book_data.forEach((y)=>{ %>
+                    <div class="book1">
+                        <img src="<%= y.img %>" width="200px" height="300px">
+                        <h1><%= y.title %></h1>
+                        <div class="order">
+                            <p><%= y.price %></p>
+                            <button class="btn">Buy Now</button>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+            <div class="dont">Award Winner Author</div>
+            <div class="award">
+                <div class="svg">
+                    <img src="../Images/Award/award3.svg">
+                    <h1>Best Author Awards 2012</h1>
+                    <p>Arcu pellentesque nisi consectetur netus aenean metus sit mattis sit sed.</p>
+                </div>
+                <div class="svg">
+                    <img src="../Images/Award/award4.svg">
+                    <h1>World's #1 Best-selling Book</h1>
+                    <p>Diam nibh non in enim nunc suscipit risus, adipiscing aenean quisque viverra.</p>
+                </div>
+                <div class="svg">
+                    <img src="../Images/Award/award5.svg">
+                    <h1>Best-selling Author 2014</h1>
+                    <p>Urna donec dolor bibendum lectus arcu purus eget nisl, ut nisl vitae.</p>
+                </div>
+                <div class="svg">
+                    <img src="../Images/Award/award6.svg">
+                    <h1>Best Author Awards 2018</h1>
+                    <p>Morbi odio sodales et facilisis mi nibh fringilla quis risus ultricies facilisis</p>
+                </div>
+            </div>
+        </div>
+        
+        <%- include ('Footer.ejs') -%>
+
+    </div>
+</body>
+
+</html>

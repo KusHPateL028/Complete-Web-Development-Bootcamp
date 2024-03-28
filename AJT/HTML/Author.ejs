@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Author.css">
+    <script src="https://kit.fontawesome.com/1dc24e00a8.js" crossorigin="anonymous"></script>
+    <title>Author</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+
+        <%- include ('Header.ejs') -%>
+
+        <div class="authors">
+            <h1>Authors</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti optio consequuntur cum a ad voluptatum
+                voluptatibus temporibus totam consectetur cupiditate.
+            </p>
+
+            <div class="author" id="author">
+                <% var i=1; %>
+                <% data.forEach((x)=>{ %>
+                    <% if(i%2===1){ %>
+                        <div class="first" >
+                            <div class="img">
+                                <img src="<%= x.img %>"  width="400px" height="450px" />
+                            </div>
+                            <div class="info">
+                                <h1><%= x.title %></h1>
+                                <p class="p2"><%= x.desc1 %></p>
+                                <p class="p2"><%= x.desc2 %>
+                                </p>
+                                <button class="btn" id="<%= x._id %>">Read More</button>
+                            </div>
+                        </div>
+                        <hr>
+                    <% } %>
+                    <% if(i%2===0) { %>
+                        <div class="first">
+                            <div class="info">
+                                <h1><%= x.title %></h1>
+                                <p class="p2"><%= x.desc1 %></p>
+                                <p class=p2><%= x.desc2 %></p>
+                                <button class="btn" id="<%= x._id %>">Read More</button>
+                            </div>
+                            <div class="img">
+                                <img src="<%= x.img %>" width="400px" height="450px">
+                            </div>
+                        </div>
+                        <hr>
+                    <% } %>
+                    <% i++ %>
+                <%})%>
+            </div>
+        </div>
+        
+        <%- include ('Footer.ejs') -%>
+
+    </div>
+    <script>
+        let btn = document.querySelectorAll('.btn');
+        btn.forEach(button =>{
+            button.addEventListener('click', function btn(){
+                let id = button.id;
+                location.href = `/About_Author?id=${id}`
+            });
+        });
+    </script>
+</body>
+
+</html>

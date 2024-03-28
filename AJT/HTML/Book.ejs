@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Book.css">
+    <script src="https://kit.fontawesome.com/1dc24e00a8.js" crossorigin="anonymous"></script>
+    <title>Books</title>
+
+</head>
+
+<body>
+    <div class="container" id="container">
+        
+        <%- include ('Header.ejs') -%>
+
+        <div class="info">
+            <h1>Books</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus ipsam recusandae numquam id?
+                Mollitia, illum?</p>
+        </div>
+        <div class="new">
+            <div class="new_info">
+                <p class="p1">New Release</p>
+                <h1><%= data[(data.length)-1].title %></h1>
+                <p class="p2"><%= data[(data.length)-1].info1 %></p>
+                <button class="new_btn" id="<%= data[(data.length)-1]._id %>">Buy Now</button>
+            </div>
+            <div class="new_img">
+                <img src="<%= data[(data.length)-1].img %>" width="300px" height="450px">
+            </div>
+        </div>
+
+        <div class="books" >
+            <% data.forEach((x)=>{ %>
+                    <div class="book1" id="<%= x._id %>">
+                        <img src="<%= x.img %>" width="200px" height="300px">
+                        <h1><%= x.title %></h1>
+                        <div class="order">
+                            <p><%= x.price %></p>
+                            <button class="btn">Buy Now</button>
+                        </div>
+                    </div>
+            <% }); %>
+        </div>
+        
+        <%- include ('Footer.ejs') -%>
+
+    </div>
+    <script>
+        let btn = document.querySelectorAll('.book1');
+        btn.forEach(button =>{
+            button.addEventListener('click', function btn(){
+                let id = button.id;
+                location.href = `/About_Book?id=${id}`
+            });
+        });
+
+        let new_book = document.querySelectorAll('.new_btn');
+        new_book.forEach(button =>{
+            button.addEventListener('click', function btn(){
+                let id = button.id;
+                location.href = `/About_Book?id=${id}`
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/About_Book.css">
+    <script src="https://kit.fontawesome.com/1dc24e00a8.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <title><%= data.title %></title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        
+        <%- include ('Header.ejs') -%>
+         
+        <div class="books">
+            <div class="book_info">
+                <div class="book_img">
+                    <img src="<%= data.img %>" width="350px" height="500px">
+                </div>
+                <div class="info">
+                    <h1><%= data.title %></h1>
+                    <h4><%= data.price %></h4>
+                    <p><%= data.desc %></p>
+                    <h5>Category : <%= data.category %></h5>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div class="buy">
+                        <input type="number" name="quantity" class="quantity" min="1">
+                        <button class="new_btn" id="para">Buy Now</button>
+                    </div>
+                    <span>Available in Stock</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mid">
+            <div class="button">
+                <div class="disc" id="disc">Description</div>
+                <div class="review" id="review">Reviews</div>
+            </div>
+            <div class="disc_info" id="description">
+                <p><%= data.info1 %></p>
+                <p><%= data.info2 %></p>
+                <p><%= data.info3 %></p>
+            </div>
+            <div class="reviews" id="reviews">
+                <div class="customers_review">There are no reviews yet.
+                </div>
+                <div class="your_review">
+                    <h1>Be the first to review "The Throned Mirror"</h1>
+                    <div class="your_rating">
+                        <h1 class="your">Your Rating:</h1>
+                        <div class="rating_symbol">
+                            <i class="5star fa-regular fa-star"></i>
+                            <i class="5star fa-regular fa-star"></i>
+                            <i class="5star fa-regular fa-star"></i>
+                            <i class="5star fa-regular fa-star"></i>
+                            <i class="5star fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                    <form class="review_form" action="/About_Book" method="POST">
+                        <div>
+                            <label for="write">Your review</label>
+                            <br>
+                            <textarea name="write" class="write" cols="30" rows="10" placeholder="Type here....." required></textarea>
+                        </div>
+                        <div class="details">
+                            <div>
+                                <label for="name">Name</label>
+                                <br>
+                                <input type="text" name="name" class="name" placeholder="Enter your Name" required>
+                            </div>
+                            <div>
+                                <label for="email">E-mail</label>
+                                <br>
+                                <input type="email" name="email" class="email" placeholder="Enter your E-mail" required>
+                            </div>
+                        </div>
+                        <input type="submit" value="Submit" class="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="dont">Related Prodocts</div>
+        <div class="related_books">
+            <a href="../Books/book2.html" class="link">
+                <div class="related_book1">
+                    <img src="../Images/Book/book2.jpg" width="200px" height="300px">
+                    <h1>The Throned Mirror</h1>
+                    <div class="related_order">
+                        <p>$23.00</p>
+                        <button class="related_btn">Buy Now</button>
+                    </div>
+                </div>
+            </a>
+            <a href="../Books/book3.html" class="link">
+                <div class="related_book1">
+                    <img src="../Images/Book/book3.jpg" width="200px" height="300px">
+                    <h1>Ark Forging</h1>
+                    <div class="related_order">
+                        <p> $20.00</p>
+                        <button class="related_btn">Buy Now</button>
+                    </div>
+                </div>
+            </a>
+            <a href="../Books/book4.html" class="link">
+                <div class="related_book1">
+                    <img src="../Images/Book/book4.jpg" width="200px" height="300px">
+                    <h1>The Sons of the Empire
+                    </h1>
+                    <div class="related_order">
+                        <p>$20.00</p>
+                        <button class="related_btn">Buy Now</button>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <%- include ('Footer.ejs') -%>
+
+    </div>
+    <script>
+        let para = document.getElementById('para');
+        para.addEventListener('click', function run() {
+            document.getElementById('symbol').innerHTML = '<a href=""><i id="symbol" class="fa-sharp fa-solid fa-cart-shopping fa-shake fa-2xl"></i></a>'
+        });
+
+        let disc = document.getElementById('disc');
+        let rev = document.getElementById('review');
+        let desc = document.getElementById('description');
+        let review = document.getElementById('reviews');
+        review.style.display = 'none';
+        rev.addEventListener('click', function hide() {
+            if (desc.style.display != 'none') {
+                review.style.display = 'block';
+                desc.style.display = 'none';
+            }
+        });
+        disc.addEventListener('click', function hide1() {
+            if (review.style.display != 'none') {
+                desc.style.display = 'block';
+                review.style.display = 'none';
+            }
+        });
+
+
+        let bttn = document.getElementsByClassName('related_btn');
+        for (let i = 0; i < bttn.length; i++) {
+            bttn[i].addEventListener('click', function run() {
+                document.getElementById('symbol').innerHTML = '<a href=""><i id="symbol" class="fa-sharp fa-solid fa-cart-shopping fa-shake fa-2xl"></i></a>'
+            });
+        }
+
+        let rs = [...document.getElementsByClassName('5star')];
+        function executeRating(stars) {
+            const starClassActive = "5star fa-solid fa-star";
+            const starClassInactive = "5star fa-regular fa-star";
+            const starsLength = stars.length;
+            let i;
+            rs.forEach(function f(x) {
+                x.onclick = () => {
+                    i = stars.indexOf(x);
+
+                    if (x.className === starClassInactive) {
+                        for (i; i >= 0; i--) stars[i].className = starClassActive;
+                    }
+                    else {
+                        for (i; i < starsLength; i++) stars[i + 1].className = starClassInactive;
+                    }
+                }
+            });
+        }
+        executeRating(rs);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Contact.css">
+    <script src="https://kit.fontawesome.com/1dc24e00a8.js" crossorigin="anonymous"></script>
+    <title>Contact Us</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        
+        <%- include ('Header.ejs') -%>
+
+        <div class="contact">
+            <h1> Contact Us</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis placeat non soluta ipsum dolores
+                temporibus fugit quasi, id labore veritatis? </p>
+        </div>
+
+        <div class="send">
+            <h1>Send Message</h1>
+            <form class="form" action="/Contact" method="POST">
+                <div>
+                    <input type="text" name="name" class="input" placeholder="Full Name" required>
+                </div>
+                <div>
+                    <input type="email" name="email" class="input" placeholder="E-mail Address" required>
+                </div>
+                <div>
+                    <input type="text" name="subject" class="input" placeholder="Subject" required>
+                </div>
+                <div>
+                    <textarea name="msg" class="input" cols="30" rows="10" placeholder="Your Message"></textarea>
+                </div>
+                <div>
+                    <input type="submit" value="Send Message" class="submit">
+                </div>
+            </form>
+        </div>
+        
+        <%- include ('Footer.ejs') -%>
+
+    </div>
+</body>
+
+</html>

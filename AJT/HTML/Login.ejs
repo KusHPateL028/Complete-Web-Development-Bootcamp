@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1dc24e00a8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../CSS/Login.css" type="text/css">
+    <title>LogIn</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <div class="img">
+                <img src="../Images/Logo/book_logo.png" height="70px" width="110px">
+            </div>
+            <h1 class="name">BOOKHOUSE</h1>
+        </div>
+        <div class="login">
+            <h1 class="k">Log In</h1>
+            <form class="form" action="/Login" method="post">
+                <div>
+                    <i class="fa-solid fa-user"></i>
+                    <label for="name">Usename</label>
+                    <input type="text" name="name" class="input" placeholder="Enter your Username" required>
+                    <% if(err1){ %>
+                        <p class="err"><%= msg %></p>
+                    <% } %>
+                </div>
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <label for="email">E-mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="email" name="email" class="input" placeholder="Enter your E-mail" required>
+                    <% if(err2){ %>
+                        <p class="err"><%= msg %></p>
+                    <% } %>
+                </div>
+                <div id="pwd1">
+                    <i class="fa fa-key"></i> 
+                    <label for="pwd">Password</label>
+                    <input type="password" name="pwd" class="input" id="password" placeholder="Enter your Password" required>
+                    <i class="fa-sharp fa-regular fa-eye" id="fa-eye"></i>
+                    <% if(err3){ %>
+                        <p class="err"><%= msg %></p>
+                    <% } %>
+                </div>
+                <div>
+                    <input type="submit" value="Login" class="submit" id="submit">
+                </div>
+            </form>
+            <div class="signin">
+                <p>-----------New to BookHouse-----------</p>
+                <form class="form1" action="/">
+                    <input type="submit" value="Create Account" class="btn">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="girl">
+        <img src="../Images//Logo/BOOKSTORE5.png" height="100px" width="120px">
+    </div>
+    <script>
+        var password = document.getElementById("password");
+        var name = document.getElementById("name1");
+        var eyeicon = document.getElementById("fa-eye");
+        var pwd1 = document.getElementById("pwd1");
+        var submit = document.getElementById("submit");
+        var error = document.getElementById("error");
+
+        submit.addEventListener('click',submit1);
+        function submit1(){
+            error.style.display = 'block';
+        }
+
+        pwd1.addEventListener('click',eye);
+        function eye(){
+            eyeicon.style.display = eyeicon.style.display === "none" ? "inline" : "inline";
+        }
+
+        eyeicon.addEventListener('click',eye_icon);
+        function eye_icon(){
+            password.type = password.type === "password" ? "text" : "password";
+            eyeicon.className = `fa-sharp fa-regular fa-eye${password.type === "password" ? "" : "-slash"}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+link to myprofile
+mouse over on rating
+Search.html
+add author name in books
+add category in blog
+category wise (if possible)
+backend 
+-search(json)
+-add to fav
+-add to cart
+-billing
+
+-blog(leave a comment)
+-book(related book,author)
+-author(award,release date)

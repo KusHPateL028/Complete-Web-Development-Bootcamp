@@ -1,0 +1,100 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+body{
+    background-color:gray;
+}
+.container{
+    border-radius: 8px;
+    background-color: hsl(0, 0%, 90%);
+    margin:40px 50px;
+    display:flex;
+    flex-direction: column;
+}
+.home_link{
+    text-decoration: none;
+    color:black;
+}
+.header{
+    display: flex;
+    align-items: center;
+    background-color: gray;
+    justify-content: space-between;
+    padding:50px 200px;
+    margin-top:50px;
+}
+.header h1{
+    color:hsl(0, 0%, 90%);
+}
+.feedback h1{
+    text-align: center;
+    padding:20px;
+}
+.form{
+    margin:50px 220px;
+}
+label{
+    font-size: 20px;
+}
+input[type='email'],input[type='text'],input[type='tel'],input[type='date'],input[type='time']{
+    width:450px;
+    height:40px;
+    margin-bottom:20px;
+    margin-top:10px;
+    margin-right:20px;
+}
+.second{
+    display: flex;
+    gap:4px;
+}
+.gender{
+    display: flex;
+    align-items: center;
+    margin-top:10px;
+    /* flex-direction: column; */
+}
+.form p{
+    font-size: 20px;
+}
+input[type='radio']{
+    height:15px;
+    margin:0px;
+    margin-left:20px;
+    margin-right:10px;
+}
+.rate{
+    margin-bottom: 30px;
+}
+.rate p{
+    margin-top:50px;
+    color:gray;
+}
+input[type='checkbox']{
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+textarea{
+    margin-top:15px;
+    margin-left:30px;
+    margin-bottom:100px;
+}
+input[type='submit']{
+    margin-top:25px;
+    font-size: 16px;
+    padding:8px 15px;
+    border-radius: 8px;
+    background-color: gray;
+    color:hsl(0, 0%, 90%);
+    border:0px solid gray;
+}
+input[type='submit']:hover{
+    background-color: hsl(0, 0%, 90%);
+    color:gray;
+    border:2px solid gray;
+    cursor: pointer;
+}
+.name{
+    margin-top:20px;
+}
+

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1dc24e00a8.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="../CSS/CreateAccount.css">
+    <title>Create Account</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <div class="img">
+                <img src="../Images/Logo/book_logo.png" height="70px" width="110px">
+            </div>
+            <h1 class="name">BOOKHOUSE </h1>
+        </div>
+        <div class="login">
+            <h1 class="k">Create Your Account</h1>
+            <form class="form" action="/CreateAccount" method="POST" name="createaccount">
+                <div>
+                    <i class="fa-solid fa-user"></i>
+                    <label for="user">Username</label>
+                    <input type="text" name="name" class="input" id="name1" placeholder="Enter Username" required>
+                    <% if(err) { %>
+                        <p class="err"><%= msg %></p>
+                    <% } %>
+                </div>
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <label for="email">E-mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="email" name="email" class="input" placeholder="Enter your E-mail" required>
+                </div>
+                <div id="pwd1">
+                    <i class="fa fa-key"></i>
+                    <label for="pwd">Password&nbsp;&nbsp;</label>
+                    <input type="password" name="pwd" class="input" id="password" placeholder="Enter your Password"  required>
+                    <i class="fa-sharp fa-regular fa-eye" id="fa-eye"></i>
+                </div>
+                <div>
+                    <i class="fa fa-key"></i>
+                    <label for="pwd2">Confirm
+                        Password</label>
+                        <input type="password" name="pwd2" class="input" id="confirm_password"
+                        placeholder="Enter your Password" required>
+                </div>
+                <div>
+                    <input type="submit" value="Create Account" class="submit"   onclick="CheckPassword()">
+                </div>
+            </form>
+            <div class="signin">
+                <p>----------------Existing User?----------------</p>
+                <form class="form1" action="/Login">
+                    <input type="submit" value="LogIn" class="btn">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="girl">
+        <img src="../Images/Logo/BOOKSTORE5.png" height="100px" width="120px">
+    </div>
+
+    <script>
+
+        var password = document.getElementById("password");
+        var name = document.getElementById("name1");
+        var eyeicon = document.getElementById("fa-eye");
+        var pwd1 = document.getElementById("pwd1");
+        var confirm_password = document.getElementById("confirm_password");
+
+        pwd1.addEventListener('click',eye);
+        function eye(){
+            eyeicon.style.display = eyeicon.style.display === "none" ? "inline" : "inline";
+        }
+
+        eyeicon.addEventListener('click',eye_icon);
+        function eye_icon(){
+            password.type = password.type === "password" ? "text" : "password";
+            confirm_password.type = confirm_password.type === "password" ? "text" : "password";
+            eyeicon.className = `fa-sharp fa-regular fa-eye${password.type === "password" ? "" : "-slash"}`;
+        } 
+        
+        function CheckPassword() { 
+            var passw=  /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}/;
+            if(password.value.match(passw)) { 
+                password.setCustomValidity("");
+            }
+            else{ 
+                password.setCustomValidity("Password should be 8 Character long and conatin atleast One Uppercase,Lowercase,Digit and Special chacaracter");
+            }
+            if (password.value != confirm_password.value) {
+                confirm_password.setCustomValidity("Passwords Don't Match");
+            } else {
+                confirm_password.setCustomValidity('');
+            }
+        }
+        
+        
+
+
+       
+    </script>
+</body>
+
+</html>

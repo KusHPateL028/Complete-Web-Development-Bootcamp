@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    /* background: url("/Images/BOOKSTORE1.jpg"); */
+    background-color: #FFFFFF;
+}
+.container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:50px;
+    margin-left:500px;
+    gap:30px;
+    /* background-color: white; */
+    width:500px;
+    height:600px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo h1{
+    font-family: 'Raleway', sans-serif;
+}
+.girl img{
+    position:relative;
+    bottom:560px;
+    left:800px;
+}
+.login{
+    border:2px solid #ddd;
+    border-radius: 7px;
+    display:flex;
+    flex-direction: column;
+    /* justify-content:center; */
+    align-items: center;
+    height:600px; 
+    width:350px; 
+    gap:30px; 
+}
+.k{
+    color:#0056FB;
+}
+.login h1{
+    font-family: 'Raleway', sans-serif;
+    margin-top:20px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+label{
+    font-family: 'Raleway', sans-serif;
+    margin:10px;
+}
+.input{
+    margin:15px 0px;
+    border:none;
+    outline: none;
+    border-bottom: 2px solid #ddd;
+    font-size:16px;
+}
+#fa-eye{
+    display:none;
+    cursor: pointer;
+}
+.err{
+    color: red;
+    font-weight: bolder ;
+}
+.submit{
+    padding:6px 20px;
+    margin-top:15px;
+    margin-bottom:70px;
+    font-size:16px;
+    cursor: pointer;
+    border:2px solid #0056FB;
+    border-radius: 7px;
+    color:white;
+    background-color: #0056FB;
+}
+.submit:hover{
+    border:2px solid #0056FB;
+    color:#0056FB;
+    background-color: white;
+}
+p{
+    margin-bottom:10px;
+}
+.signin{
+    font-family: 'Raleway', sans-serif;
+    font-size:16px;
+}
+.btn{
+    background-color: white;
+    margin:5px 70px;
+    padding:8px 15px;
+    width:150px;
+    border-radius: 7px;
+    border:2px solid #0056FB;
+    cursor: pointer;
+    color:#0056FB;
+}
+.btn:hover{
+    color:#FFFFFF;
+    background-color: #0056FB;
+}

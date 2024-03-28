@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/About_Blog.css">
+    <script src="https://kit.fontawesome.com/1dc24e00a8.js" crossorigin="anonymous"></script>
+    <title><%= data.title %></title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        
+        <%- include ('Header.ejs') -%>
+
+        <div class="blogs">
+            <div class="blog">
+                <img src="<%= data.img %>" width="1200px" height="550px">
+                <h1><%= data.title %></h1>
+                <p><%= data.info1 %>
+                </p>
+                <div class="second">
+                    <span><%= data.quote %></span>
+                    <h1><%= data.name %> </h1>
+                </div>
+                <p><%= data.info2 %></p>
+                <p><%= data.info3 %></p>
+                <p><%= data.info4 %></p>
+            </div>
+        </div>
+        <div class="next">
+            <h2 class="post" id="<%= prev._id %>">← Previous Post</h2>
+            <h2 class="post" id="<%= next._id %>">Next Post →</h2>
+        </div>
+        <div class="cmt">
+            <div class="button">
+                <div class="disc" id="leave_a_cmt">Leave a Comment</div>
+                <div class="disc" id="leave_a_cmt">|</div>
+                <div class="disc" id="see_all_cmt">See All Comment</div>
+            </div>
+            <div class="leave_cmt" id="write_cmt">
+                <form action="/About_Blog" method="POST">
+                    <textarea cols="110" rows="15" placeholder="Type Here" name="cmt"></textarea>
+                    <div class="info" required>
+                        <input type="text" placeholder="First Name" name="first_name" required>
+                        <input type="text" placeholder="Last Name" name="last_name" required>
+                        <input type="email" placeholder="E-mail" name="email" required>
+                    </div>
+                    <input type="text" name="blog_id" value="<%= data.id %>" style="display:none">
+                    <input type="submit" value="Post Comment">
+                </form>
+            </div>
+            <div class="display_cmt" id="display_cmt">
+                <% if(blog_cmt.length == 0){ %>
+                    <p class="no_cmt">
+                        No Comment Yet
+                    </p>
+                <% } %>
+                <% if(blog_cmt.length != 0){ %>
+                    <% blog_cmt.forEach((x)=>{ %>
+                        <p class="user_name"><%= x.first_name + " " + x.last_name %></p>
+                        <p class="user_cmt"><%= x.cmt %></p>
+                        <hr style="margin:30px 0px">
+                    <% }); %>
+                <% } %>
+                
+            </div>
+        </div>
+        
+        <%- include ('Footer.ejs') -%>
+
+    </div>
+    <script>
+        let next = document.querySelectorAll(".post")
+        next.forEach(next_post =>{
+            next_post.addEventListener('click', function next(){
+                let id = next_post.id;
+                location.href = `/About_Blog?id=${id}`
+            });
+        });
+
+        let leave_a_cmt = document.getElementById('leave_a_cmt');
+        let see_all_cmt = document.getElementById('see_all_cmt');
+        let write_cmt = document.getElementById('write_cmt');
+        let display_cmt = document.getElementById('display_cmt');
+        display_cmt.style.display = 'none';
+        see_all_cmt.addEventListener('click', function hide() {
+            if (write_cmt.style.display != 'none') {
+                display_cmt.style.display = 'block';
+                write_cmt.style.display = 'none';
+            }
+        });
+        leave_a_cmt.addEventListener('click', function hide1() {
+            if (display_cmt.style.display != 'none') {
+                write_cmt.style.display = 'block';
+                display_cmt.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>

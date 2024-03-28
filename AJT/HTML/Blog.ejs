@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Blog.css">
+    <script src="https://kit.fontawesome.com/1dc24e00a8.js" crossorigin="anonymous"></script>
+    <title>Blog</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        
+        <%- include ('Header.ejs') -%>
+
+        <div class="blogs">
+            <h1>Blogs</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti optio consequuntur cum a ad voluptatum voluptatibus temporibus totam consectetur cupiditate.</p>
+            <% data.forEach((x)=>{ %>
+                <div class="blog">
+                    <img src="<%= x.img %>" width="1200px" height="550px">
+                    <h1><%= x.title %></h1>
+                    <p><%= x.desc %>
+                    </p>
+                    <button class="btn" id="<%= x._id %>">Read More</button>
+                </div>
+                <hr>
+            <% }) %>
+        </div>
+
+        <%- include ('Footer.ejs') -%>
+
+    </div>
+    <script>
+
+        let btn = document.querySelectorAll('.btn');
+        btn.forEach(button =>{
+            button.addEventListener('click', function btn(){
+                let id = button.id;
+                location.href = `/About_Blog?id=${id}`
+            });
+        });
+    </script>
+</body>
+
+</html>
